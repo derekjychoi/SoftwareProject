@@ -1,0 +1,204 @@
+package view;
+
+import java.awt.BorderLayout;
+import java.awt.FlowLayout;
+import java.awt.GridLayout;
+import java.util.Vector;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextPane;
+
+
+
+
+public class Main_JFrame extends JFrame {
+	
+
+	private static JTextPane textPane1 = new JTextPane();
+	private static JTextPane textPane2 = new JTextPane();
+	
+	private static JButton copyToRight = new JButton("Left >>> Right");//merge
+	private static JButton copyToLeft = new JButton("Left <<< Right");//merge
+	private static JButton compare = new JButton("Compare!!");//compare
+	
+	private JButton buttonL_edit = new JButton("Edit");
+	private JButton buttonR_edit = new JButton("Edit");
+	
+
+
+	
+	private JButton load_btn = new JButton("LOAD");
+
+	private JButton save_btn = new JButton("SAVE");
+	
+	public Main_JFrame(){
+		this.setSize(1000, 500);
+		this.setLocation(500, 250);
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setTitle("MainFrame");
+		this.setLayout(new BorderLayout());
+		
+		
+		MainF_panel1 p1 = new MainF_panel1();
+	
+		MainF_panel2 p2 = new MainF_panel2();
+		MainF_panel3 p3 = new MainF_panel3();
+
+		
+		
+		
+		
+		add(p1, BorderLayout.NORTH);
+		add(p2, BorderLayout.CENTER);
+		add(p3, BorderLayout.SOUTH);
+		setVisible(true);
+		
+		
+		
+		// JTextPane edit 踰꾪듉 ?꾨Ⅴ湲??꾧퉴吏?edit 遺덇?
+		textPane1.setEditable(false);
+		textPane2.setEditable(false);
+		
+		
+		
+
+	}
+	
+
+	
+
+
+	
+	public class MainF_panel1 extends JPanel{
+		
+		public MainF_panel1(){
+			this.setLayout(new GridLayout(2, 1));
+			
+			Menu menu = new Menu();
+			panelC C = new panelC();
+			
+			this.add(menu);
+			this.add(C);
+			
+		
+		}
+		
+		public class Menu extends JPanel{
+			
+			public Menu(){
+				this.setLayout(new FlowLayout(FlowLayout.LEFT));
+				this.add(load_btn);
+				this.add(save_btn);
+			}
+						
+		}
+				
+		
+		private class panelA extends JPanel{
+			
+			private panelA(){
+				setLayout(new FlowLayout(FlowLayout.LEFT));
+
+				this.add(buttonL_edit);
+				this.add(copyToRight);
+			
+			}
+		}
+		private class panelB extends JPanel{
+			
+			private panelB(){
+				setLayout(new FlowLayout(FlowLayout.LEFT));
+
+				this.add(buttonR_edit);
+				this.add(copyToLeft);
+			}
+		}
+		
+		private class panelC extends JPanel{
+			
+			private panelC(){
+				this.setLayout(new GridLayout(1, 2));
+				
+				
+				panelA A = new panelA();
+				panelB B = new panelB();
+				this.add(A);
+				this.add(B);
+			}
+			
+			
+		}
+	}
+	public class MainF_panel2 extends JPanel{
+		
+		public MainF_panel2(){
+			setLayout(new GridLayout(1, 2));
+			add(new JScrollPane(textPane1));		
+			add(new JScrollPane(textPane2));
+		}
+	}
+	public class MainF_panel3 extends JPanel{
+		public MainF_panel3(){
+			setLayout(new GridLayout(1, 1));
+			add(compare);
+		}
+	}
+
+	public JButton getLoad_btn() {
+		return load_btn;
+	}
+	public JButton getSave_btn() {
+		return save_btn;
+	}
+	
+	public JButton getButtonL_edit() {
+		return buttonL_edit;
+	}
+	public JButton getButtonR_edit() {
+		return buttonR_edit;
+	}
+	public static JTextPane getTextPane1() {
+		return textPane1;
+	}
+	public void setTextPane1(Vector<String> file) {
+	    Main_JFrame.textPane1.removeAll();  
+		String input = new String();
+	      int i;
+	      for(i=0;i<file.size()-1;i++){
+	         input+=file.get(i);
+	         input+="\n";
+	      }
+	      input+=file.get(i);
+	    Main_JFrame.textPane1.setText(input);
+   }
+
+	public static JTextPane getTextPane2() {
+		return textPane2;
+	}
+	public void setTextPane2(Vector<String> file) {
+	      String input = new String();
+	      int i;
+	      for(i=0;i<file.size()-1;i++){
+	         input+=file.get(i);
+	         input+="\n";
+	      }
+	      input+=file.get(i);
+	      Main_JFrame.textPane2.setText(input);
+	   }
+
+	public static JButton getCopyToRight() {
+		return copyToRight;
+	}
+	public static JButton getCopyToLeft() {
+		return copyToLeft;
+	}
+	public static JButton getCompare() {
+		return compare;
+	}
+
+	
+}
+
