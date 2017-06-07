@@ -1,0 +1,184 @@
+package view;
+
+import java.awt.BorderLayout;
+import java.awt.GridLayout;
+import javax.swing.ButtonGroup;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JRadioButton;
+import javax.swing.JTextField;
+
+public class LoadF_JFrame extends JFrame{
+	
+	private JRadioButton L_load_button = new JRadioButton("?쇱そ?뚯씪 遺덈윭?ㅺ린");
+	private JRadioButton L_load_not = new JRadioButton("遺덈윭?ㅼ? ?딆쓬", true);
+	private JTextField L_load_textField = new JTextField(20);
+	private ButtonGroup L_load_bg = new ButtonGroup();
+	
+	private JRadioButton R_load_button = new JRadioButton("?ㅻⅨ履??뚯씪 遺덈윭?ㅺ린");
+	private JRadioButton R_load_not = new JRadioButton("遺덈윭?ㅼ? ?딆쓬", true);
+	private JTextField R_load_textField = new JTextField(20);
+	private ButtonGroup R_load_bg = new ButtonGroup();
+	
+	private JButton L_confirmation = new JButton("?뺤씤");
+	private JButton L_cancelation = new JButton("痍⑥냼");
+	private JFrame L_jframe = new JFrame();
+	
+	
+	
+
+	public LoadF_panel1 p1 = new LoadF_panel1();
+	public LoadF_panel2 p2 = new LoadF_panel2();
+	
+	public LoadF_panel4 p4 = new LoadF_panel4();
+	public LoadF_panel3 p3 = new LoadF_panel3(L_jframe,p4);
+	
+	public LoadF_JFrame(){
+		this.setSize(700, 350);
+		this.setLocation(750, 300);
+		this.setTitle("Load");
+		this.setLayout(new BorderLayout());
+		this.setVisible(false);
+	
+		
+		this.add(p4, BorderLayout.CENTER);
+		this.add(p3, BorderLayout.SOUTH);
+	}
+	
+	public class LoadF_panel1 extends JPanel {
+
+
+		public LoadF_panel1() {
+			setLayout(new GridLayout(3, 1));
+			L_load_textField.setEditable(false);
+			L_load_bg.add(L_load_button);
+			L_load_bg.add(L_load_not);
+
+			this.add(L_load_not);
+			this.add(L_load_button);
+			this.add(L_load_textField);
+		}
+
+
+	}
+	public class LoadF_panel2 extends JPanel{
+
+		
+		public LoadF_panel2() {
+			this.setLayout(new GridLayout(3, 1));
+			R_load_textField.setEditable(false);
+			R_load_bg.add(R_load_button);
+			R_load_bg.add(R_load_not);
+			this.add(R_load_not);
+			this.add(R_load_button); 
+			this.add(R_load_textField);
+		}
+
+	}
+	public class LoadF_panel3 extends JPanel {
+
+		private JFrame L_jframe;
+		private LoadF_panel4 p4;
+		
+		public LoadF_panel3(JFrame L_jframe, LoadF_panel4 p4) {
+			this.add(L_confirmation);
+			this.add(L_cancelation);
+			this.p4 = p4;
+			this.L_jframe = L_jframe;
+		}
+
+	}
+	public class LoadF_panel4 extends JPanel{
+		public LoadF_panel4(){
+			setLayout(new GridLayout(2, 1));
+			this.add(p1);
+			this.add(p2);
+		}
+		public LoadF_panel1 getLoadF_panel1(){
+			return p1;
+		}
+		public LoadF_panel2 getLoadF_panel2(){
+			return p2;
+		}
+
+	}
+	
+	
+	
+	
+	public JRadioButton getL_load_button() {
+		return L_load_button;
+	}
+	public void setL_load_button(JRadioButton l_load_button) {
+		L_load_button = l_load_button;
+	}
+	public JRadioButton getL_load_not() {
+		return L_load_not;
+	}
+	public void setL_load_textField(JTextField l_load_textField) {
+		L_load_textField = l_load_textField;
+	}
+	public void setR_load_textField(JTextField r_load_textField) {
+		R_load_textField = r_load_textField;
+	}
+	public void setL_load_not(JRadioButton l_load_not) {
+		L_load_not = l_load_not;
+	}
+	public JTextField getL_load_textField() {
+		return L_load_textField;
+	}
+	public void setL_load_textField(String location1) {//left file path
+		this.L_load_textField.setText(location1);
+	}
+	public ButtonGroup getL_load_bg() {
+		return L_load_bg;
+	}
+	public void setL_load_bg(ButtonGroup l_load_bg) {
+		L_load_bg = l_load_bg;
+	}
+	public JRadioButton getR_load_button() {
+		return R_load_button;
+	}
+	public void setR_load_button(JRadioButton r_load_button) {
+		R_load_button = r_load_button;
+	}
+	public JRadioButton getR_load_not() {
+		return R_load_not;
+	}
+	public void setR_load_not(JRadioButton r_load_not) {
+		R_load_not = r_load_not;
+	}
+	public JTextField getR_load_textField() {
+		return R_load_textField;
+	}
+	public void setR_load_textField(String location2) {//right file path
+		this.R_load_textField.setText(location2);
+	}
+	public ButtonGroup getR_load_bg() {
+		return R_load_bg;
+	}
+	public void setR_load_bg(ButtonGroup r_load_bg) {
+		R_load_bg = r_load_bg;
+	}
+	public JButton getL_confirmation() {
+		return L_confirmation;
+	}
+	public void setL_confirmation(JButton l_confirmation) {
+		L_confirmation = l_confirmation;
+	}
+	public JButton getL_cancelation() {
+		return L_cancelation;
+	}
+	public void setL_cancelation(JButton l_cancelation) {
+		L_cancelation = l_cancelation;
+	}
+	public JFrame getL_jframe() {
+		return L_jframe;
+	}
+	public void setL_jframe(JFrame l_jframe) {
+		L_jframe = l_jframe;
+	}
+	
+
+}
