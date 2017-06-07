@@ -1,0 +1,211 @@
+package view;
+
+import java.awt.BorderLayout;
+import java.awt.GridLayout;
+
+import javax.swing.ButtonGroup;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JRadioButton;
+import javax.swing.JTextField;
+
+
+
+
+public class Save_JFrame extends JFrame {
+	
+
+
+	private JRadioButton L_save_same = new JRadioButton("?쇱そ ?뚯씪 ???);
+	private JRadioButton L_save_other = new JRadioButton("?ㅻⅨ?대쫫?쇰줈 ???);
+	private JRadioButton L_save_not = new JRadioButton("??ν븯吏 ?딆쓬", true);
+	private JTextField L_save_textField = new JTextField(20);
+	private ButtonGroup L_save_bg = new ButtonGroup();
+	
+	
+	private JRadioButton R_save_same = new JRadioButton("?ㅻⅨ履??뚯씪 ???);
+	private JRadioButton R_save_other = new JRadioButton("?ㅻⅨ?대쫫?쇰줈 ???);
+	private JRadioButton R_save_not = new JRadioButton("??ν븯吏 ?딆쓬", true);
+	private JTextField R_save_textField = new JTextField(20);
+	private ButtonGroup R_save_bg = new ButtonGroup();	
+	
+	private JButton S_confirmation = new JButton("?뺤씤");
+	private JButton S_cancelation = new JButton("痍⑥냼");
+	
+	private JFrame S_jframe = new JFrame();
+	public SaveF_panel1 p1 = new SaveF_panel1();
+	public SaveF_panel2 p2 = new SaveF_panel2();
+	
+	public SaveF_panel4 p4 = new SaveF_panel4();
+	public SaveF_panel3 p3 = new SaveF_panel3(S_jframe, p4);
+	
+	
+	public Save_JFrame() {
+		
+		this.setSize(700, 350);
+		this.setLocation(750, 300);
+		this.setTitle("Save");
+		this.setLayout(new BorderLayout());
+		this.setVisible(false);
+		SaveF_panel4 p4 = new SaveF_panel4();
+		SaveF_panel3 p3 = new SaveF_panel3(this, p4);
+		
+		this.add(p4, BorderLayout.CENTER);
+		this.add(p3, BorderLayout.SOUTH);
+	}
+	
+
+	public class SaveF_panel1 extends JPanel{
+
+		public SaveF_panel1(){
+			this.setLayout(new GridLayout(4, 1));
+			L_save_textField.setEditable(false);
+			L_save_bg.add(L_save_not);
+			L_save_bg.add(L_save_other);
+			L_save_bg.add(L_save_same);
+
+			this.add(L_save_not);
+			this.add(L_save_same);
+			this.add(L_save_other);
+			this.add(L_save_textField);
+		}
+
+	}
+	public class SaveF_panel2 extends JPanel{
+
+		
+		public SaveF_panel2(){
+			this.setLayout(new GridLayout(4, 1));
+			R_save_textField.setEditable(false);
+			R_save_bg.add(R_save_other);
+			R_save_bg.add(R_save_same);
+			R_save_bg.add(R_save_not);
+			
+			this.add(R_save_not); 
+			this.add(R_save_same);
+			this.add(R_save_other);
+			this.add(R_save_textField);
+		}
+		
+
+	}
+	public class SaveF_panel3 extends JPanel {
+
+		private JFrame S_jframe;
+		private SaveF_panel4 p4;
+
+		public SaveF_panel3(JFrame S_jframe, SaveF_panel4 p4) {
+			this.add(S_confirmation);
+			this.add(S_cancelation);
+			this.S_jframe = S_jframe;
+			this.p4 = p4;
+		}
+		
+
+	}
+	public class SaveF_panel4 extends JPanel{
+			
+		public SaveF_panel4(){
+			setLayout(new GridLayout(2, 1));
+
+			this.add(p1);
+			this.add(p2);
+		}
+		public SaveF_panel1 getSaveF_panel1(){
+			return p1;
+		}
+		public SaveF_panel2 getSaveF_panel2(){
+			return p2;
+		}
+	}
+	
+	
+	
+	public JFrame getS_jframe() {
+		return S_jframe;
+	}
+	public void setS_jframe(JFrame s_jframe) {
+		S_jframe = s_jframe;
+	}
+	public JRadioButton getL_save_same() {
+		return L_save_same;
+	}
+	public void setL_save_same(JRadioButton l_save_same) {
+		L_save_same = l_save_same;
+	}
+	public JRadioButton getL_save_other() {
+		return L_save_other;
+	}
+	public void setL_save_other(JRadioButton l_save_other) {
+		L_save_other = l_save_other;
+	}
+	public JRadioButton getL_save_not() {
+		return L_save_not;
+	}
+	public void setL_save_not(JRadioButton l_save_not) {
+		L_save_not = l_save_not;
+	}
+
+	public ButtonGroup getL_save_bg() {
+		return L_save_bg;
+	}
+	public void setL_save_bg(ButtonGroup l_save_bg) {
+		L_save_bg = l_save_bg;
+	}
+	public JRadioButton getR_save_same() {
+		return R_save_same;
+	}
+	public void setR_save_same(JRadioButton r_save_same) {
+		R_save_same = r_save_same;
+	}
+	public JRadioButton getR_save_other() {
+		return R_save_other;
+	}
+	public void setR_save_other(JRadioButton r_save_other) {
+		R_save_other = r_save_other;
+	}
+	public JRadioButton getR_save_not() {
+		return R_save_not;
+	}
+	public void setR_save_not(JRadioButton r_save_not) {
+		R_save_not = r_save_not;
+	}
+
+	public JTextField getL_save_textField() {
+		return L_save_textField;
+	}
+
+	public void setL_save_textField(String loaction1) {
+		L_save_textField.setText(loaction1);
+	}
+
+	public JTextField getR_save_textField() {
+		return R_save_textField;
+	}
+
+	public void setR_save_textField(String location2) {
+		R_save_textField.setText(location2);
+	}
+
+	public ButtonGroup getR_save_bg() {
+		return R_save_bg;
+	}
+	public void setR_save_bg(ButtonGroup r_save_bg) {
+		R_save_bg = r_save_bg;
+	}
+	public JButton getS_confirmation() {
+		return S_confirmation;
+	}
+	public void setS_confirmation(JButton s_confirmation) {
+		S_confirmation = s_confirmation;
+	}
+	public void setS_cancelation(JButton s_cancelation) {
+		S_cancelation = s_cancelation;
+	}
+	public JButton getS_cancelation() {
+		return S_cancelation;
+	}
+	
+	
+}
