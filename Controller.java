@@ -178,7 +178,8 @@ public class Controller {
 								new InputStreamReader(new FileInputStream(file1), "euc-kr"));
 						input1 = new Scanner(br);
 					} catch (Exception a) {
-						System.out.println("Unknown File");
+						JOptionPane.showMessageDialog(null, "왼쪽파일 경로를 확인해주세요!!");
+						loadF.getLoad_not1().setSelected(true);
 					}
 					if (leftFileText.size() != 0)
 						leftFileText.clear();
@@ -217,9 +218,9 @@ public class Controller {
 							String line2 = input2.nextLine();
 							doc2.insertString(doc2.getLength(), line2 + "\n", null);
 							rightFileText.add(line2);
-						} catch (BadLocationException e1) {
-							// TODO Auto-generated catch block
-							e1.printStackTrace();
+						} catch (Exception a) {
+							JOptionPane.showMessageDialog(null, "왼쪽파일 경로를 확인해주세요!!");
+							loadF.getLoad_not1().setSelected(true);
 						}
 					}
 				}
